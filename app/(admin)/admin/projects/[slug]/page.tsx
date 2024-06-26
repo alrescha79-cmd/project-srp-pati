@@ -36,6 +36,6 @@ export default function ProjectDetailPage({ params }:ProjectDetailPageProps) {
     }
 
     return (
-        <BlogForm id={params.slug} variant="project" value={response?.data}/>
+        <BlogForm id={params.slug}  value={response?.data}/>
     )
 }
