@@ -3,7 +3,7 @@
 import React from "react";
 import { config } from "@/constant";
 import Image from "next/image";
-import Srp from "@/public/images/srp.jpg";
+import Srp from "@/public/images/srp.png";
 import Title from "@/website-components/ui/Title";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Paragraph from "./ui/Paragraph";
@@ -27,7 +27,7 @@ function Banner() {
                         router.push("/#contact")
                     }}>Hubungi Kami</Button>
                     <Button variant="plain" onClick={() => {
-                        router.push("/projects")
+                        router.push("/kegiatan")
                     }}>Lihat Kegiatan <ArrowTopRightIcon/></Button>
                 </div>
             </div>
