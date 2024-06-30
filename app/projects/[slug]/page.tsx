@@ -5,7 +5,6 @@ import WebsiteMainLayout from "@/website-components/layout/WebsiteMainLayout";
 import SubTitle from "@/website-components/ui/SubTitle";
 import Paragraph from "@/website-components/ui/Paragraph";
 import Image from "next/image";
-import { Editor } from "novel";
 
 interface ProjectProps {
   params: {
@@ -76,17 +75,6 @@ function Project({ params }: ProjectProps) {
                 height={500}
                 className="w-full"
                 alt={response.data.title}
-              />
-              <Editor
-                editorProps={{
-                  editable: () => {
-                    return false
-                  }
-                }}
-                onDebouncedUpdate={() => {}}
-                defaultValue={response.data.content}
-                className="mt-2 border-none p-0 m-0"
-                disableLocalStorage
               />
             </div>
           </>
