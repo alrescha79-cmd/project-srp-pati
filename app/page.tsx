@@ -1,10 +1,10 @@
 'use client';
 
 import Banner from "@/website-components/Banner";
-import PortfolioInfo from "@/website-components/PortfolioInfo";
-import Skills from "@/website-components/Skills";
-import Portfolio from "@/website-components/Portfolio";
-import Blogs from "@/website-components/Blogs";
+import PelatihanDetail from "@/website-components/PelatihanDetail";
+import LatarBelakang from "@/website-components/LatarBelakang";
+import Pelatihan from "@/website-components/Pelatihan";
+import Kegiatan from "@/website-components/Kegiatan";
 import ContactForm from "@/website-components/ContactForm";
 import ContactInfo from "@/website-components/ContactInfo";
 import WebsiteMainLayout from "@/website-components/layout/WebsiteMainLayout";
@@ -27,10 +27,10 @@ export default async function Index() {
   return (
     <WebsiteMainLayout>
       <Banner />
-      <PortfolioInfo />
-      <Skills />
-      <Portfolio />
-      <Blogs />
+      <PelatihanDetail />
+      <LatarBelakang />
+      <Pelatihan />
+      <Kegiatan />
       <ContactForm />
       <ContactInfo />
       <hr className="mt-12 mb-12 block"/>

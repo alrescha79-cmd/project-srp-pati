@@ -71,8 +71,7 @@ export default function BlogsPage() {
   return (
     <>
       <div className="flex mb-8 justify-between">
-        {/* tambah kegiatan */}
-        <Link href="/admin/blogs/create">
+        <Link href="/admin/kegiatan/create">
           <Button>Tambah Kegiatan</Button>
         </Link>
         <div className="relative">
@@ -115,7 +114,7 @@ export default function BlogsPage() {
                     <div>
                       <Link
                         className="text-xl font-semibold text-blue-600"
-                        href={`/admin/blogs/${d.id}`}
+                        href={`/admin/kegiatan/${d.id}`}
                       >
                         {d.title}
                       </Link>

@@ -70,7 +70,7 @@ function ContactForm() {
                 className={`border border-slate-300 w-full p-3 rounded ${
                   errors.fullName && "border-red-500 bg-red-100"
                 }`}
-                placeholder="Full Name"
+                placeholder="Nama Lengkap"
                 {...register("fullName", { required: true })}
               />
               {errors.fullName && (
@@ -85,7 +85,7 @@ function ContactForm() {
                 className={`border border-slate-300 w-full p-3 rounded ${
                   errors.email && "border-red-500 bg-red-100"
                 }`}
-                placeholder="Your Email"
+                placeholder="Email"
                 {...register("email", {
                   required: true,
                   pattern: {
@@ -106,16 +106,8 @@ function ContactForm() {
               <input
                 type="text"
                 className="border border-slate-300 w-full p-3 rounded"
-                placeholder="Phone Number"
+                placeholder="Nomor Telepon"
                 {...register("number")}
-              />
-            </div>
-            <div className="md:w-full">
-              <input
-                type="budget"
-                className="border border-slate-300 w-full p-3 rounded"
-                placeholder="Budget"
-                {...register("budget")}
               />
             </div>
           </div>
@@ -125,7 +117,7 @@ function ContactForm() {
               className={`border border-slate-300 w-full p-3 rounded ${
                 errors.description && "border-red-500 bg-red-100"
               }`}
-              placeholder="Description"
+              placeholder="Pesan"
               {...register("description", { required: true })}
             />
             {errors.description && (
@@ -143,7 +135,7 @@ function ContactForm() {
                   <PaperPlaneIcon />
                 )
               }
-              <span className="ml-1">{loading ? 'Sending...' : 'Submit Message'}</span>
+              <span className="ml-1">{loading ? 'Mengirim...' : 'Kirim'}</span>
             </Button>
           </div>
         </form>

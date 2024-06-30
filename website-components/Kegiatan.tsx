@@ -50,7 +50,7 @@ function Blogs() {
   }, []);
 
   return (
-    <div className="py-12 relative z-10" id="blogs">
+    <div className="py-12 relative z-10" id="kegiatan">
       <div className="flex flex-col justify-center lg:items-center gap-4">
         <div className="lg:text-center">
           <Title title={config.blogs.title} />
@@ -58,7 +58,7 @@ function Blogs() {
           <Paragraph content={config.blogs.content} />
         </div>
         <div>
-          <div className="flex gap-10 flex-col md:flex-row">
+          <div className="flex gap-10 flex-col md:flex-row ">
             {response.loading ? (
               <div className="animate-pulse flex space-x-4">
                 <div className="flex-1 space-y-6 py-1">
@@ -72,14 +72,14 @@ function Blogs() {
             ) : (
               <>
                 {response.data.map((blog: BlogProps, index: number) => (
-                  <div className="w-full" key={index.toString()} data-aos="fade-up">
-                    <Image src={blog.cover_url} alt="Project" width={`300`} height={300}/>
-                    <Link href={`/blogs/${blog.id}`} className="text-lg text-green-600 font-medium mt-4 block">
+                  <div className="w-full border " key={index.toString()} data-aos="fade-up">
+                    <Image src={blog.cover_url} alt="Kegiatan Kami" width={`300`} height={300}/>
+                    <Link href={`/kegiatan/${blog.id}`} className="text-lg text-green-600 font-medium mt-4 block">
                       {blog.title}
                     </Link>
-                    <p className="text-slate-400 font-light">
-                      {blog.description}
-                    </p>
+                    <p className="mt-2 text-slate-500">
+                  {blog.description.split(" ").slice(0, 10).join(" ")}{blog.description.split(" ").length > 10 ? "..." : ""}
+                </p>
                   </div>
                 ))}
               </>
@@ -89,7 +89,7 @@ function Blogs() {
       </div>
       <div className="mt-10 lg:flex lg:justify-center m-auto">
         <Button onClick={() => {
-          router.push("/blogs");
+          router.push("/kegiatan");
         }}>
           <EyeOpenIcon /> {config.blogs.actionButton}
         </Button>

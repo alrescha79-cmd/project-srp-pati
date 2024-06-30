@@ -51,15 +51,18 @@ function Blogs() {
           </div>
         ) : (
           <div className="mt-8">
-            {response.data.map((blog: { id: string; title: string; description: string }, index: number) => (
-              <div key={index.toString()} className="mb-6 ">
+            {response.data.map((blog: { id: string; title: string; description: string; cover_url: string }, index: number) => (
+              <div key={index.toString()} className="mb-6">
                 <Link
-                  href={`/blogs/${blog.id}`}
+                  href={`/kegiatan/${blog.id}`}
                   className="text-2xl font-normal text-green-400"
                 >
                   {blog.title}
                 </Link>
-                <p className="mt-2 text-slate-500">{blog.description}</p>
+                <p className="mt-2 text-slate-500">
+                  {blog.description.split(" ").slice(0, 10).join(" ")}{blog.description.split(" ").length > 10 ? "..." : ""}
+                </p>
+                <img src={blog.cover_url} alt={blog.title} width={`300`} height={300} className="mt-2 rounded-lg" />
               </div>
             ))}
           </div>

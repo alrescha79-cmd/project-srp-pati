@@ -58,12 +58,12 @@ export default async function MainLayout({ children }: MainLayoutProps) {
                   <Button variant={"outline"}><PlusIcon className="mr-2"/>Posting</Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-40" align="end">
-                  <Link href={"/admin/projects/create"}>
+                  {/* <Link href={"/admin/pelatihan/create"}>
                     <DropdownMenuItem className="text-gray-500 cursor-pointer">
                       Pembelajaran
                     </DropdownMenuItem>
-                  </Link>
-                  <Link href={"/admin/blogs/create"}>
+                  </Link> */}
+                  <Link href={"/admin/kegiatan/create"}>
                     <DropdownMenuItem className="text-gray-500 cursor-pointer">
                       Kegiatan
                     </DropdownMenuItem>

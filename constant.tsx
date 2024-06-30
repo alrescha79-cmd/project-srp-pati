@@ -1,4 +1,3 @@
-import { SketchLogoIcon, Pencil2Icon, ImageIcon } from "@radix-ui/react-icons";
 import { IoFishOutline } from "react-icons/io5";
 import { FaShip } from "react-icons/fa";
 import { MdOutlineAdminPanelSettings, MdDeveloperBoard, MdOutlineMenuBook } from "react-icons/md";
@@ -20,15 +19,15 @@ const config = {
       },
       {
         name: "Latar Belakang",
-        id: '/#skills'
+        id: '/#latar-belakang'
       },
       {
         name: "Sekolah Mitra",
-        id: '/#portfolio'
+        id: '/#pelatihan'
       },
       {
         name: "Kegiatan",
-        id: '/#blogs'
+        id: '/#kegiatan'
       },
       {
         name: "Kontak",

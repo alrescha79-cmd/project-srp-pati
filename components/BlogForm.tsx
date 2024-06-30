@@ -1,13 +1,12 @@
-"use client";
-// @ts-ignore
-import { Editor, editorProps } from "novel";
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { CheckIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useCallback, useReducer, useState } from "react";
 import { useRouter } from "next/navigation";
-import Select, { MultiValue, OptionProps } from "react-select";
+import Select, { MultiValue } from "react-select";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -47,13 +46,11 @@ const blogsTags = [
 
 const getDefaultValue = (value: string[]) => {
   if (value.length > 0) {
-    return value.map((v) => {
-      return {
-        label: v,
-        name: v,
-        value: v,
-      };
-    });
+    return value.map((v) => ({
+      label: v,
+      name: v,
+      value: v,
+    }));
   }
 
   return [];
@@ -81,9 +78,7 @@ export default function BlogForm({
 
   const [loading, setLoading] = useState(false);
   const [blogForm, setBlogForm] = useReducer(
-    (prev: any, next: any) => {
-      return { ...prev, ...next };
-    },
+    (prev: any, next: any) => ({ ...prev, ...next }),
     {
       title: value?.title || "",
       content: value?.content || "",
@@ -93,10 +88,6 @@ export default function BlogForm({
     }
   );
 
-  const updateContent = useCallback((data: editorProps) => {
-    setBlogForm({ content: data.getJSON() });
-  }, []);
-
   const onSubmitBlog: SubmitHandler<Inputs> = async (data) => {
     let req;
     const blogData = {
@@ -105,7 +96,7 @@ export default function BlogForm({
       description: data?.description || "",
       tags: blogForm?.tags || [],
       cover_url: blogForm?.cover_url || "",
-    }
+    };
 
     setLoading(true);
 
@@ -113,7 +104,7 @@ export default function BlogForm({
       req = await fetch(`/api/blogs?id=${id}`, {
         method: "PATCH",
         headers: {
-          "Contet-type": "application/json",
+          "Content-type": "application/json",
         },
         body: JSON.stringify(blogData),
       });
@@ -121,7 +112,7 @@ export default function BlogForm({
       req = await fetch("/api/blogs", {
         method: "POST",
         headers: {
-          "Contet-type": "application/json",
+          "Content-type": "application/json",
         },
         body: JSON.stringify(blogData),
       });
@@ -132,20 +123,20 @@ export default function BlogForm({
     setLoading(false);
 
     if (response?.data?.id) {
-      router.push("/admin/blogs");
+      router.push("/admin/kegiatan");
     }
   };
 
   const onSubmitProject: SubmitHandler<Inputs> = async (data) => {
     let req;
 
-    const ProjectData = {
+    const projectData = {
       title: data?.title || "",
       content: blogForm?.content || "",
       description: data?.description || "",
       tags: blogForm?.tags || [],
       cover_url: blogForm?.cover_url || "",
-    }
+    };
 
     setLoading(true);
 
@@ -153,17 +144,17 @@ export default function BlogForm({
       req = await fetch(`/api/projects?id=${id}`, {
         method: "PATCH",
         headers: {
-          "Contet-type": "application/json",
+          "Content-type": "application/json",
         },
-        body: JSON.stringify(ProjectData),
+        body: JSON.stringify(projectData),
       });
     } else {
       req = await fetch("/api/projects", {
         method: "POST",
         headers: {
-          "Contet-type": "application/json",
+          "Content-type": "application/json",
         },
-        body: JSON.stringify(ProjectData),
+        body: JSON.stringify(projectData),
       });
     }
 
@@ -172,7 +163,7 @@ export default function BlogForm({
     setLoading(false);
 
     if (response?.data?.id) {
-      router.push("/admin/projects");
+      router.push("/admin/pelatihan");
     }
   };
 
@@ -183,7 +174,7 @@ export default function BlogForm({
       )}
     >
       <div>
-        <Label htmlFor="email" className="capitalize">
+        <Label htmlFor="title" className="capitalize">
           Judul {variant}
         </Label>
         <Input
@@ -201,7 +192,7 @@ export default function BlogForm({
       </div>
       <div className="mt-5">
         <Label htmlFor="description" className="capitalize">
-        Deskripsi {variant}
+          Deskripsi {variant}
         </Label>
         <Textarea
           placeholder="Description"
@@ -267,16 +258,9 @@ export default function BlogForm({
         <Label htmlFor="content" className="capitalize">
           Konten {variant}
         </Label>
-        <Editor
-          editorProps={{}}
-          onDebouncedUpdate={updateContent}
-          defaultValue={blogForm.content}
-          className="border rounded pb-8 mt-2"
-          disableLocalStorage
-        />
       </div>
       <div className="mt-4">
-        <Label htmlFor="content" className="capitalize">
+        <Label htmlFor="tags" className="capitalize">
           Tags {variant}
         </Label>
         <Select
@@ -288,7 +272,7 @@ export default function BlogForm({
             if (value && value.length > 0) {
               const tags = value.map((v: { name: string }) => v?.name);
 
-              setBlogForm({ tags: tags });
+              setBlogForm({ tags });
             }
           }}
           className="basic-multi-select"
@@ -300,13 +284,13 @@ export default function BlogForm({
           variant={"secondary"}
           onClick={() => {
             variant === "Kegiatan"
-              ? router.push("/admin/blogs")
-              : router.push("/admin/projects");
+              ? router.push("/admin/kegiatan")
+              : router.push("/admin/pelatihan");
           }}
         >
           Cancel
         </Button>
-        <Button className="ml-5">
+        <Button type="submit" className="ml-5">
           {loading ? (
             <>
               <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />

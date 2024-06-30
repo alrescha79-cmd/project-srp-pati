@@ -65,13 +65,14 @@ function Projects() {
   }, []);
 
   return (
-    <div className="py-12 flex flex-col lg:items-center" id="portfolio">
+    <div className="py-12 flex flex-col lg:items-center" id="pelatihan">
       <div className="lg:text-center">
         <Title title={config.portfolio.title} />
         <SubTitle title={config.portfolio.subTitle} />
         <Paragraph content={config.portfolio.content} />
         <div className="inline-block" data-aos="fade-up">
-          <Button
+          <h1>Segera Hadir</h1>
+          {/* <Button
             onClick={() => {
               router.push("/projects");
             }}
@@ -80,7 +81,7 @@ function Projects() {
               <EyeOpenIcon />
             </span>{" "}
             Lihat semua Pelatihan
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className="mt-8">

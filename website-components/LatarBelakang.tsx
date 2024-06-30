@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 function Skills() {
   const router = useRouter();
   return (
-    <div className="flex flex-col sm:justify-center justify-center gap-11 py-12" id="skills" data-aos="fade-up">
+    <div className="flex flex-col sm:justify-center justify-center gap-11 py-12" id="latar-belakang" data-aos="fade-up">
       <div className=" sm:m-auto md:text-center">
         <Title title={config.mySkills.title} />
         <SubTitle title={config.mySkills.subTitle} />

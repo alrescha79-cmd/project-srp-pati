@@ -24,13 +24,13 @@ export default function SideNavigation() {
                 </Link>
             </li>
             <li className="mb-2">
-                <Link href={"/admin/projects"} className={`${path === "/admin/projects" ? 'bg-gray-100' : ''} hover:bg-gray-100 px-3 py-2 rounded text-gray-600 hover:text-gray-800 flex items-center gap-2`}>
+                <Link href={"/admin/pelatihan"} className={`${path === "/admin/pelatihan" ? 'bg-gray-100' : ''} hover:bg-gray-100 px-3 py-2 rounded text-gray-600 hover:text-gray-800 flex items-center gap-2`}>
                     <RocketIcon />
                     Pembelajaran
                 </Link>
             </li>
             <li className="mb-2">
-                <Link href={"/admin/blogs"} className={`${path === "/admin/blogs" ? 'bg-gray-100' : ''} hover:bg-gray-100 px-3 py-2 rounded text-gray-600 hover:text-gray-800 flex items-center gap-2`}>
+                <Link href={"/admin/kegiatan"} className={`${path === "/admin/kegiatan" ? 'bg-gray-100' : ''} hover:bg-gray-100 px-3 py-2 rounded text-gray-600 hover:text-gray-800 flex items-center gap-2`}>
                     <ReaderIcon />
                     Kegiatan
                 </Link>
