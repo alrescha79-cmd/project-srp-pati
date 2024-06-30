@@ -20,7 +20,7 @@ function Blogs() {
 
   const fetchProjects = async () => {
     setResponse({ loading: true });
-    const res = await fetch(`/api/blogs?limit=6`, {
+    const res = await fetch(`/api/blogs/`, {
       method: "GET",
     });
     const response = await res.json();
